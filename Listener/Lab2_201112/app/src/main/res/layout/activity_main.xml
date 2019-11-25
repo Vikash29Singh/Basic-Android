@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/purp_gradient"
+    tools:context=".MainActivity">
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/numb1"
+        android:textColor="#fff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="75dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="146dp"
+        android:hint="Number 1" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/numb2"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/numb1"
+        android:layout_alignStart="@+id/numb1"
+        android:layout_below="@+id/numb1"
+        android:hint="Number 2"
+        android:textColor="#fff"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:id="@+id/add"
+        android:layout_marginTop="51dp"
+        android:layout_below="@+id/numb2"
+        android:layout_centerHorizontal="true"
+        android:onClick="onAdd"
+
+        android:background="@color/green"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sub"
+        android:id="@+id/sub"
+        android:layout_below="@+id/add"
+        android:layout_centerHorizontal="true"
+        android:onClick="onSub"
+        android:background="@color/red"/>
+    <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Mult"
+    android:id="@+id/mul"
+    android:layout_below="@+id/sub"
+    android:layout_centerHorizontal="true" android:background="@color/creame"
+    android:onClick="onMul" />
+
+    <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Div"
+    android:id="@+id/div"
+    android:layout_below="@+id/mul"
+    android:layout_centerHorizontal="true"
+    android:onClick="onDiv"
+        android:background="@color/blue"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:id="@+id/clear"
+        android:layout_below="@+id/div"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClear" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/numb2"
+        android:layout_alignEnd="@+id/numb2"
+        android:layout_alignRight="@+id/numb2"
+        android:layout_marginLeft="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textSize="35dp"
+        android:textColor="#fff"
+        android:hint="Result" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="95dp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:text="Vikash Calculator"
+        android:textSize="25dp" />
+
+
+</RelativeLayout>
