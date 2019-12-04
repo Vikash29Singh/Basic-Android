@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select your Food category ?"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"/>
+
+        <!-- add RadioGroup which contain the many RadioButton-->
+        <RadioGroup
+            android:layout_marginTop="50dp"
+            android:id="@+id/groupradio"
+            android:layout_marginLeft="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- In RadioGroup create the 1 Radio Button-->
+            <!-- like this we will add some more Radio Button-->
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/veg"
+                android:text="Veg"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/non_veg"
+                android:text="Non-Veg"
+                android:textSize="20dp"/>
+
+
+        </RadioGroup>
+
+    <RelativeLayout
+        android:id="@+id/veg_cart"
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:layout_marginTop="160dp"
+        android:orientation="vertical">
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Sahi Paneer  120"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp"
+        />
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dal Tadka 130"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/checkBox"
+            android:textSize="18sp"
+            />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Fried Rice 110"
+            android:textSize="18sp"
+            android:layout_below="@id/checkBox2"
+             tools:layout_editor_absoluteX="382dp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/non_veg_cart"
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:layout_marginTop="160dp"
+        android:orientation="vertical">
+        <CheckBox
+            android:id="@+id/ncheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Chilli Paneer  140"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp"
+            />
+        <CheckBox
+            android:id="@+id/ncheckBox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mutton Kosha 150"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/ncheckBox"
+            android:textSize="18sp"
+            />
+
+        <CheckBox
+            android:id="@+id/ncheckBox3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Chicken Fried Rice 130"
+            android:textSize="18sp"
+            android:layout_below="@id/ncheckBox2"
+            tools:layout_editor_absoluteX="382dp"
+            />
+
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="430dp"
+        android:text="Apply Coupon"
+        android:textSize="25sp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:id="@+id/tv"
+        />
+    <EditText
+        android:id="@+id/coupon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:hint="Apply coupon" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/submit"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="180dp"
+
+        />
+
+    <!-- add clear button for clear the selected item-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:id="@+id/clear"
+        android:textSize="20dp"
+        android:textStyle="bold"
+       android:layout_marginTop="500dp"
+        android:layout_marginLeft="20dp"
+
+        />
+
+
+</RelativeLayout>
+

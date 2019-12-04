@@ -36,10 +36,13 @@ public class Dashboard extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
-   /*     name = getIntent().getExtras().getString("Name");
         tv=(TextView)findViewById(R.id.tv);
-        tv.setText(name);*/
+        name = getIntent().getExtras().getString("Name");
+        tv.setTextSize(35);
+        tv.setText(name);
+        Toast toast= (Toast) Toast.makeText(getApplicationContext(),  name,Toast.LENGTH_SHORT);
+        toast.show();
+        tv.setText(name);
         //Navigation Code
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

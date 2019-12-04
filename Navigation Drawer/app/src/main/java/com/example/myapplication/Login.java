@@ -43,11 +43,13 @@ public class Login extends AppCompatActivity {
 
         if (email.getText().toString().equals("abc@gmail.com") &&
                 password.getText().toString().equals("1234")) {
+            Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), Dashboard.class);
-                intent.putExtra("Name", email.getText().toString());
-                startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+            intent.putExtra("Name", email.getText().toString());
+            startActivity(intent);
+
+            //startActivity(intent);
         }
         else {
 
