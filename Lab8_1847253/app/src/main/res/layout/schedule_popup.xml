@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/rounded_corner">
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="end"
+        android:text="X"
+        android:textColor="#2f6699"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:background="@drawable/button_style"
+        android:id="@+id/popup_close"/>
+
+    <EditText
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Address"
+        android:inputType="text"
+        android:id="@+id/seats"
+        android:padding="10dp"
+        android:layout_margin="15dp"/>
+
+    <EditText
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:id="@+id/v_model"
+        android:padding="10dp"
+        android:layout_margin="15dp"/>
+
+    <EditText
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:id="@+id/v_color"
+        android:padding="10dp"
+        android:layout_margin="15dp"/>
+
+    <EditText
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Phone No"
+        android:inputType="phone"
+        android:id="@+id/v_no"
+        android:padding="10dp"
+        android:layout_margin="15dp"/>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center">
+
+    <EditText
+        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Pick a Date"
+        android:id="@+id/ride_date"
+        android:padding="10dp"
+        android:layout_margin="15dp"/>
+
+    <Button
+        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:background="@color/primary"
+        android:id="@+id/btn_date"
+        android:padding="10dp"
+        android:layout_margin="15dp"
+        android:textColor="#FFFFFF"
+        android:text="SELECT DATE"/>
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+
+    <EditText
+        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Pick a Date"
+        android:id="@+id/ride_time"
+        android:padding="10dp"
+        android:layout_margin="15dp"/>
+
+    <Button
+        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:background="@color/primary"
+        android:id="@+id/btn_time"
+        android:padding="10dp"
+        android:layout_margin="15dp"
+        android:textColor="#FFFFFF"
+        android:text="SELECT TIME"/>
+
+</LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/submit1"
+        android:text="PLACE ORDER"
+        android:onClick="onClickShowAlert"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:textColor="@color/colorAccent"
+        app:backgroundTint="@color/transparent"
+        app:cornerRadius="15dp"
+        app:rippleColor="#33AAAAAA"
+        app:strokeColor="@color/colorAccent"
+        app:strokeWidth="2dp"
+        android:layout_marginBottom="30dp"/>
+
+</LinearLayout>
