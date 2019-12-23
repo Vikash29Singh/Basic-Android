@@ -6,47 +6,48 @@ import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>  {
     private Context mContext;
-    private List<Model> modelList;
+    private ArrayList<Model> modelList;
     private ClickAdapterListener listener;
     private SparseBooleanArray selectedItems;
-
 
     private static int currentSelectedIndex = -1;
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
-        public TextView textView, textView1, textView2;
-        public RelativeLayout relativeLayout;
+        public TextView textView, textView1, textView2, textView3;
+        private ImageView imageView;
+        public LinearLayout linearLayout;
+
 
         public MyViewHolder(View view) {
             super(view);
             textView = (TextView) view.findViewById(R.id.textView);
             textView1 = (TextView) view.findViewById(R.id.textView1);
             textView2 = (TextView) view.findViewById(R.id.textView2);
+            textView3 = (TextView) view.findViewById(R.id.textView3);
+            imageView = (ImageView) view.findViewById(R.id.imageView);
 
-            relativeLayout = (RelativeLayout) view.findViewById(R.id.relativeLayout);
+            linearLayout = (LinearLayout) view.findViewById(R.id.relativeLayout);
             view.setOnLongClickListener(this);
         }
 
         @Override
         public boolean onLongClick(View view) {
-            listener.onRowLongClicked(getAdapterPosition());
+            listener.onRowLongClicked(getAdapterPosition(), view);
             view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
             return true;
         }
     }
 
 
-    public RecyclerViewAdapter(Context mContext, List<Model> modelList, ClickAdapterListener listener) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<Model> modelList, ClickAdapterListener listener) {
         this.mContext = mContext;
         this.modelList = modelList;
         this.listener = listener;
@@ -58,17 +59,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recyclerview_list_row, parent, false);
 
+
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        //String text = modelList.get(position).text;
         Model model = modelList.get(position);
         holder.textView.setText(model.getTitle());
         holder.textView1.setText(model.getGenre());
         holder.textView2.setText(model.getYear());
-        //holder.textView.setText(text);
+        holder.textView3.setText(model.getRating());
+        holder.imageView.setImageResource(model.getImage());
 
         if (modelList.get(position).colored)
             holder.textView.setTextColor(mContext.getResources().getColor(android.R.color.holo_red_dark));
@@ -79,17 +81,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     private void applyClickEvents(MyViewHolder holder, final int position) {
-        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onRowClicked(position);
+                listener.onRowClicked(position, view);
             }
         });
 
-        holder.relativeLayout.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.linearLayout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                listener.onRowLongClicked(position);
+                listener.onRowLongClicked(position, view);
                 view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
                 return true;
             }
@@ -130,8 +132,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return selectedItems.size();
     }
 
-    public List<Integer> getSelectedItems() {
-        List<Integer> items =
+    public ArrayList<Integer> getSelectedItems() {
+        ArrayList<Integer> items =
                 new ArrayList(selectedItems.size());
         for (int i = 0; i < selectedItems.size(); i++) {
             items.add(selectedItems.keyAt(i));
@@ -155,8 +157,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public interface ClickAdapterListener {
 
-        void onRowClicked(int position);
+        void onRowClicked(int position, View v);
 
-        void onRowLongClicked(int position);
+        void onRowLongClicked(int position, View v);
     }
 }

@@ -3,7 +3,7 @@
     <color name="black">#000</color>
     <color name="row_activated">#e0e0e0</color>
 
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#000</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#E43F3F</color>
 
@@ -23,5 +23,8 @@
     <color name="title">#222222</color>
 
     <color name="navyblue">#0077e6</color>
+
+    <color name="bg_splash">#adf0f4</color>
+
 
 </resources>
