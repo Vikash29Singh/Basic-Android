@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+       tools:context=".Nointernet">
+    <com.skyfishjy.library.RippleBackground
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ripeffect"
+        app:rb_color="#b20000"
+        app:rb_radius="40dp"
+        app:rb_duration="4000"
+        app:rb_rippleAmount="6"
+        app:rb_scale="8"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="500dp"
+            android:layout_height="700dp"
+            android:contentDescription="No Internet"
+            android:src="@drawable/nointernet1" />
+        </com.skyfishjy.library.RippleBackground>
+
+
+
+</LinearLayout>

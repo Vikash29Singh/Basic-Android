@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="match_parent"
+    android:background="@color/bluelight"
+
+    android:layout_gravity="center">
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="end"
+        android:text="X"
+        android:textColor="#2f6699"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:background="@drawable/button_style"
+        android:id="@+id/txtclose"/>
+    <TextView
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Schedule Date"
+        android:padding="10dp"
+        android:textColor="@color/bluedark"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="bold"
+        android:layout_margin="15dp"/>
+
+    <TextView
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Order ID : cric79648512"
+        android:padding="10dp"
+        android:textColor="@color/bluedark"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="bold"
+        android:layout_margin="15dp"/>
+
+    <EditText
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Phone No"
+        android:inputType="phone"
+        android:id="@+id/v_no"
+
+        android:padding="10dp"
+        android:layout_margin="15dp"/>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center">
+
+    <TextView
+        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Pick a Date"
+        android:id="@+id/picker_date"
+        android:padding="10dp"
+        android:layout_margin="15dp"/>
+
+    <Button
+        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:background="@color/green"
+        android:id="@+id/btn_date"
+        android:padding="10dp"
+        android:layout_margin="15dp"
+        android:textColor="#FFFFFF"
+        android:text="SELECT DATE"/>
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+
+    <TextView
+        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Pick a Time"
+        android:id="@+id/picker_time"
+        android:padding="10dp"
+        android:layout_margin="15dp"/>
+
+    <Button
+        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:background="@color/green"
+        android:id="@+id/btn_time"
+        android:padding="10dp"
+        android:layout_margin="15dp"
+        android:textColor="#FFFFFF"
+        android:text="SELECT TIME"/>
+
+</LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/place_order"
+        android:text="PLACE ORDER"
+
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:textColor="@color/bluedark"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="15dp"
+        app:rippleColor="#33AAAAAA"
+        app:strokeColor="@color/bluedark"
+        app:strokeWidth="2dp"
+        android:layout_marginBottom="30dp"/>
+
+</LinearLayout>

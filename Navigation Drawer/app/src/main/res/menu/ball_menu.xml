@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ball_plastic"
+
+        android:name="@string/cricket_plastic"
+
+        />
+
+    <item
+        android:id="@+id/ball_tennis"
+
+        android:name="@string/cricket_tennis">
+
+        <menu>
+            <item
+                android:id="@+id/ball_tennis_green"
+
+                android:name="@string/cricket_tennis_green"/>
+            <item
+                android:id="@+id/ball_tennis_red"
+
+                android:name="@string/cricket_tennis_red"/>
+
+        </menu>
+    </item>
+
+
+    <item
+        android:id="@+id/ball_deuce"
+
+        android:name="@string/cricket_deuce" />
+
+
+</menu>

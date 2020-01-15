@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+    <item
+        android:id="@+id/action_order"
+        android:name="@string/action_order"
+        android:title="@string/action_order"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_wishlist"
+        android:title="@string/action_wishlist"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+      <item
+        android:id="@+id/action_account"
+        android:title="@string/action_account"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_schedule"
+        android:title="Schedule Order"
+        android:orderInCategory="100"
+
+        app:showAsAction="never"
+        />
+
+
+    <item
+        android:id="@+id/action_call"
+        android:orderInCategory="100"
+        android:title="@string/action_call"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="@string/action_log_out"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_arrival"
+        android:orderInCategory="100"
+        android:title="@string/action_cart"
+        app:showAsAction="always"
+        android:icon="@drawable/newarrival"
+        />
+    <item
+        android:id="@+id/action_cart"
+        android:orderInCategory="100"
+        android:title="@string/action_cart"
+        app:showAsAction="always"
+
+        android:icon="@drawable/ic_shopping_cart"
+        
+
+        />
+
+
+</menu>

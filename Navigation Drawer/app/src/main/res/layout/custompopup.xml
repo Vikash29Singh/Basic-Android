@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="575dp"
+    android:background="@color/colorPrimaryDark"
+    android:padding="5dp"
+    android:layout_gravity="center">
+    <TextView
+        android:id="@+id/txtclose"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:textColor="@color/white"
+        android:text="X"
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:gravity="center"
+        android:background="@drawable/cerclebackground"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/buttonleft"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_keyboard_arrow_left_black_24dp"
+                android:layout_gravity="center"/>
+
+            <ImageSwitcher
+                android:id="@+id/changeimage"
+                android:layout_width="230dp"
+                android:layout_height="233dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"></ImageSwitcher>
+
+            <ImageButton
+                android:id="@+id/buttonright"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/ic_keyboard_arrow_right_black_24dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+        <TextSwitcher
+            android:id="@+id/textSwitcher1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal">
+        </TextSwitcher>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextSwitcher
+            android:id="@+id/textSwitcher2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs. 265"
+            android:layout_marginLeft="114sp"
+
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"/>
+
+            <TextSwitcher
+                android:id="@+id/textSwitcher3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="736"
+                android:layout_marginLeft="5dp"
+
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"/>
+            <TextSwitcher
+                android:id="@+id/textSwitcher4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="36% off"
+                android:layout_marginLeft="5sp"
+
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="@color/orange"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="100dp">
+
+            <TextSwitcher
+                android:id="@+id/textSwitcher5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="265"
+                android:textSize="18sp"
+                android:textColor="#000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reviews"
+                android:textSize="18sp"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@color/bluelight"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="100dp">
+
+
+            <TextSwitcher
+                android:id="@+id/textSwitcher6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.5"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rating"
+                android:textSize="18sp"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buy"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
