@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">First_page</string>
-    <string name="second_name">Second_page</string>
-    <string name="first_page">This is my first Activity</string>
-    <string name="second_page">This is my second Activity</string>
-    <string name="toast_msg">Toast will be appeared below</string>
-    <string name="enter_text">Please Enter Your name</string>
-</resources>
