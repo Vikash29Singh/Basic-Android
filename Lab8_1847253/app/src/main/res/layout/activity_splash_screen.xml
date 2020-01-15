@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Splash_screen"
+    android:id="@+id/ll"
+    android:gravity="center"
+    android:background="@color/cardview_light_background">
+
+        <com.skyfishjy.library.RippleBackground
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ripple_bg"
+            app:rb_color="@color/bg_splash"
+            app:rb_radius="40dp"
+            app:rb_rippleAmount="6"
+            app:rb_duration="5000"
+            app:rb_scale="8"
+            android:gravity="center">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:id="@+id/imageView"
+            android:layout_height="700dp"
+            android:src="@drawable/splash"/>
+
+        </com.skyfishjy.library.RippleBackground>
+
+</LinearLayout>
