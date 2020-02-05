@@ -29,30 +29,19 @@
             android:layout_height="wrap_content"
             >
             <RadioButton
-                android:id="@+id/economy"
+                android:id="@+id/seat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/colorAccent"
-                android:text="@string/economy"
+                android:text="@string/seater"
                 />
             <RadioButton
                 android:id="@+id/busi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/colorAccent"
-                android:text="@string/business"/>
-            <RadioButton
-                android:id="@+id/first"
-                android:buttonTint="@color/colorAccent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/first"/>
-            <RadioButton
-                android:id="@+id/prem"
-                android:buttonTint="@color/colorAccent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/premium"/>
+                android:text="@string/sleeper"/>
+
 
         </RadioGroup>
 

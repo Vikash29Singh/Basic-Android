@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
+        BottomNavigationView bottomNav1 = findViewById(R.id.bottom_navigation1);
+        bottomNav1.setOnNavigationItemSelectedListener(navListener1);
+
         //I added this if statement to keep the selected fragment when rotating the device
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -72,6 +75,40 @@ public class MainActivity extends AppCompatActivity {
 
                         case R.id.cam:
                             selectedFragment = new Cam_Pic();
+                            break;
+                    }
+
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            selectedFragment).commit();
+
+                    return true;
+                }
+            };
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener1 =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment selectedFragment = null;
+
+                    switch (item.getItemId()) {
+
+                        case R.id.home:
+                            selectedFragment = new Flight_book();
+                            break;
+
+                        case R.id.trip:
+                            selectedFragment = new Flight_book();
+                            break;
+
+                        case R.id.cash:
+                            selectedFragment = new Flight_book();
+                            break;
+                        case R.id.cam:
+                            selectedFragment = new Cam_Pic();
+                            break;
+                        case R.id.help:
+                            selectedFragment = new Flight_book();
                             break;
                     }
 

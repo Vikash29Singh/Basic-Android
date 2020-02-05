@@ -33,18 +33,19 @@
             android:orientation="horizontal"
             android:gravity="center">
 
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="@string/origin"
-            android:textSize="10sp"/>
+            <TextView
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="28dp"
+                android:text="@string/origin"
+                android:textSize="10sp" />
 
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="@string/destination"
-            android:textSize="10sp"
-            android:layout_marginLeft="5dp"/>
+            <TextView
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+
+                android:text="@string/destination"
+                android:textSize="10sp" />
 
         </LinearLayout>
 
@@ -55,14 +56,21 @@
             android:gravity="center">
 
     <EditText
-        android:layout_width="150dp"
+        android:id="@+id/origin"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:hint="@string/origin"
 
         android:textStyle="bold"/>
+            <ImageView
+                android:id="@+id/swap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_sync_black_24dp"/>
 
     <EditText
+        android:id="@+id/destination"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:textSize="20sp"

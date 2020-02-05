@@ -12,4 +12,9 @@
     <string name="infants">Infants</string>
     <string name="cancel">CANCEL</string>
     <string name="ok">OK</string>
+    <string name="seater">Seater</string>
+    <string name="sleeper">Sleeper Class</string>
+    <string name="second">Second Class</string>
+    <string name="third">Third Class</string>
+    <string name="senior">Senior Citizen</string>
 </resources>

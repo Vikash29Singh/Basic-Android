@@ -29,11 +29,11 @@ public class Cam_Pic extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.cam_pic, container, false);
+        view = inflater.inflate(R.layout.cam_pic, container, false);
 
       imageView= view.findViewById(R.id.img_view);
       camera=view.findViewById(R.id.camera);
-      pick=view.findViewById(R.id.packed);
+      pick=view.findViewById(R.id.pick);
       upload=view.findViewById(R.id.upload);
 
       camera.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +48,7 @@ public class Cam_Pic extends Fragment {
           @Override
           public void onClick(View view) {
               //  final CharSequence[] items = {"Gallery", "Cancel"};
-              AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+              AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
               builder.setTitle("Add Image From Gallery");
               builder.setPositiveButton("Gallery", new DialogInterface.OnClickListener() {
                   @Override
@@ -77,7 +77,21 @@ public class Cam_Pic extends Fragment {
           }
       });
 
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // creating an object for a class mytask
+                //telling it to
 
+
+                    mytask T = new mytask(getContext());
+                    T.execute();   // this will call do in background
+
+            }
+        });
+
+
+return view;
     }
 
 
@@ -96,6 +110,8 @@ public class Cam_Pic extends Fragment {
         if(requestCode==SELECT_IMAGE){
             Uri selectImageUri = data.getData();
             imageView.setImageURI(selectImageUri);
+
+
         }
 
 
@@ -104,12 +120,7 @@ public class Cam_Pic extends Fragment {
 
 
 
-    public void call(View v){
-        // creating an object for a class mytask
-        //telling it to
-        mytask T = new mytask(getContext());
-        T.execute();   // this will call do in background
-    }
+
 
 
 }

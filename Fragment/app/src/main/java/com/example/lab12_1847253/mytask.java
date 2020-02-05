@@ -8,6 +8,13 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentController;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 //set the three parameter properly
 //3 parameters - param,progress/update
 public class mytask extends AsyncTask<Void, Integer, String> {
@@ -55,6 +62,7 @@ public class mytask extends AsyncTask<Void, Integer, String> {
             }
     }
 
+
     //parameters passes to this method
     //invoked on the UI thread after a call to publishProgress(Progress...).
     @Override
@@ -72,22 +80,29 @@ public class mytask extends AsyncTask<Void, Integer, String> {
         builder.setTitle("Alert")
 
                 .setMessage("Img uploaded succesfully")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        ctx.startActivity(new Intent(ctx,Cam_Pic.class));
+                        final Intent intent=new Intent(ctx,MainActivity.class);
+                        ctx.startActivity(intent);
+
+
+
+
+
                     }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                });
+/*                .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                        // Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                        // ctx.For(new Intent(MediaStore.ACTION_IMAGE_CAPTURE),CAMERA_REQUEST);
                         Toast.makeText(ctx, "Sorry an error occured", Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
         builder.show();
         pd.hide();
         Toast.makeText(ctx, s, Toast.LENGTH_SHORT).show();
     }
+
 }
