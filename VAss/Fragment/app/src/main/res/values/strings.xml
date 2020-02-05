@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Lab12_1847253</string>
+    <string name="origin">Origin</string>
+    <string name="destination">Destination</string>
+    <string name="selectclas">Select a Class</string>
+    <string name="economy">Economy</string>
+    <string name="business">Business</string>
+    <string name="first">First Class</string>
+    <string name="premium">Premium Economy</string>
+    <string name="adult">Adult</string>
+    <string name="children">Children</string>
+    <string name="infants">Infants</string>
+    <string name="cancel">CANCEL</string>
+    <string name="ok">OK</string>
+</resources>

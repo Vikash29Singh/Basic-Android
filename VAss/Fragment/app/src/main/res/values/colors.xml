@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000</color>
+    <color name="row_activated">#e0e0e0</color>
+
+    <color name="colorPrimary">#000</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#CD2424</color>
+
+    <color name="dark_blue">#3023AE</color>
+    <color name="purple">#c86dd7</color>
+
+    <color name="login_form_details">#ccffffff</color>
+    <color name="login_form_details_light">#1affffff</color>
+    <color name="login_form_details_medium">#66ffffff</color>
+
+    <color name="white">#ffffff</color>
+    <color name="primary">#E43F3F</color>
+
+    <color name="transparent">#00555555</color>
+
+    <color name="year">#999999</color>
+    <color name="title">#222222</color>
+
+    <color name="navyblue">#0077e6</color>
+
+    <color name="bg_splash">#adf0f4</color>
+
+    <color name="midnightblue">#2c3e50</color>
+
+    <color name="background">#ecf0f1</color>
+
+</resources>
+
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <color name="colorPrimary">#008577</color>
+        <color name="colorPrimaryDark">#00574B</color>
+        <color name="colorAccent">#D81B60</color>
+    </resources>
+    -->
