@@ -1,4 +1,4 @@
-package com.example.lab12_1847253;
+package com.example.Travelprogram;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

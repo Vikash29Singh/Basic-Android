@@ -1,4 +1,4 @@
-package com.example.lab12_1847253;
+package com.example.Travelprogram;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -7,13 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentController;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 //set the three parameter properly
 //3 parameters - param,progress/update

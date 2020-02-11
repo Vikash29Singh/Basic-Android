@@ -1,4 +1,4 @@
-package com.example.lab12_1847253;
+package com.example.Travelprogram;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,7 +16,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 public class Cam_Pic extends Fragment {

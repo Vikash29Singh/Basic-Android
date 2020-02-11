@@ -1,4 +1,4 @@
-package com.example.lab12_1847253;
+package com.example.Travelprogram;
 
 import org.junit.Test;
 

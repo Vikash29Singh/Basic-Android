@@ -1,4 +1,4 @@
-package com.example.lab12_1847253;
+package com.example.Travelprogram;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -32,7 +32,7 @@ public class Flight_book extends Fragment {
     MaterialButton search;
     Button cancel,ok;
     String travel_class,num;
-    int count1,count2,count3;
+    int count1 = 1,count2,count3;
 
     @Nullable
     @Override
@@ -197,7 +197,7 @@ radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
                 final TextView adult,child,infant,numb1,numb2,numb3;
 
-                Dialog mydialog = new Dialog(getActivity());
+                final Dialog mydialog = new Dialog(getActivity());
                 mydialog.setContentView(R.layout.traveller_pop);
 
                 Button cancel = mydialog.findViewById(R.id.cancel);
@@ -223,6 +223,8 @@ radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 add1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        adult.setText(count1);
+                        numb1.setText(count1);
                         if (count1 < 6) {
                             count1++;
                             adult.setText(String.valueOf(count1));
@@ -239,6 +241,8 @@ radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 add2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        child.setText(count2);
+                        numb2.setText(count2);
                         if (count2 < count1) {
                             count2++;
                             child.setText(String.valueOf(count2));
@@ -333,13 +337,32 @@ radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(getActivity(),MainActivity.class));
+                        //startActivity(new Intent(getActivity(),MainActivity.class));
+                        mydialog.dismiss();
                     }
                 });
                 ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         //startActivity(new Intent(getActivity(),MainActivity.class));
+/*                        numb1.setText(String.valueOf(count1));
+                        numb2.setText(String.valueOf(count2));
+                        numb3.setText(String.valueOf(count3));*/
+                      /* String data1 = count1+" Adult,";
+                       String data2 = count2+" Child,";
+                        String data3 = count3+" Infant";*/
+
+                        mydialog.dismiss();
+                        if (count2 == 0 && count3 == 0) {
+                            travellertype.setText(count1+"Adult");
+                        }
+                        else if(count3 == 0){
+                            travellertype.setText(count1+"Adult,"+count2+"Child");
+
+                        }
+                        else {
+                            travellertype.setText(count1+"Adult,"+count2+"Child,"+count3+"Infant");
+                        }
 
 
                     }
