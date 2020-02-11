@@ -31,6 +31,8 @@ public class Flight_book extends Fragment {
     View view;
     MaterialButton search;
     Button cancel,ok;
+    String travel_class,num;
+    int count1,count2,count3;
 
     @Nullable
     @Override
@@ -46,6 +48,10 @@ public class Flight_book extends Fragment {
         swap= view.findViewById(R.id.swap);
         origin= view.findViewById(R.id.origin);
         destination= view.findViewById(R.id.destination);
+
+
+
+
 
 
         swap.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +117,7 @@ public class Flight_book extends Fragment {
          travclass.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 Dialog mydialog = new Dialog(getActivity());
+                 final Dialog mydialog = new Dialog(getActivity());
                  mydialog.setContentView(R.layout.traveller_class_pop);
                  final RadioButton economy,busi,first,prem;
                  economy=mydialog.findViewById(R.id.economy);
@@ -119,9 +125,13 @@ public class Flight_book extends Fragment {
                  first=mydialog.findViewById(R.id.first);
                  prem=mydialog.findViewById(R.id.prem);
 
-                 Button cancel = mydialog.findViewById(R.id.cancel);
+
+
+
+
+                // Button cancel = mydialog.findViewById(R.id.cancel);
                  final RadioGroup radioGroup=mydialog.findViewById(R.id.radiogroup);
-                 Button ok = mydialog.findViewById(R.id.ok);
+               //  Button ok = mydialog.findViewById(R.id.ok);
 
 /*
 radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -137,38 +147,44 @@ radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                                                            @Override
                                                            public void onCheckedChanged(RadioGroup radioGroup, int i) {
                                                                if(economy.isChecked()==true){
-
+                                                                   travel_class = "Economy";
                                                                }
                                                                else if(busi.isChecked()==true){
+                                                                   travel_class = "Business";
 
                                                                } else if(prem.isChecked()==true){
+                                                                   travel_class = "Premium Economy";
 
                                                                }
-                                                               else (first.isChecked()==true)
+                                                               else if(first.isChecked()==true)
                                                                {
-
+                                                                   travel_class = "First Class";
                                                                }
+                                                               Toast.makeText(getContext(), "Class selected"+travel_class, Toast.LENGTH_SHORT).show();
+                                                               mydialog.dismiss();
+                                                               travclass.setText(travel_class);
+
 
                  }
              });
 
 
-                         cancel.setOnClickListener(new View.OnClickListener() {
+                       /*  cancel.setOnClickListener(new View.OnClickListener() {
                              @Override
                              public void onClick(View view) {
                                  startActivity(new Intent(getActivity(), MainActivity.class));
                              }
                          });
-                 ok.setOnClickListener(new View.OnClickListener() {
+                         ok.setOnClickListener(new View.OnClickListener() {
                      @Override
                      public void onClick(View view) {
 
-                             startActivity(new Intent(getActivity(),Flight_book.class));
+                         Intent intent = new Intent(getContext(), MainActivity.class);
+                         intent.putExtra("trav_class", travel_class);
+                     }
+                     //startActivity(new Intent(getActivity(),MainActivity.class));
 
-                         }
-                         //startActivity(new Intent(getActivity(),MainActivity.class));
-
-                 });
+                 });*/
                  mydialog.setCancelable(true);
                  mydialog.show();
              }
@@ -177,11 +193,140 @@ radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
         travellertype.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Button add1,add2,add3,sub1,sub2,sub3;
+
+                final TextView adult,child,infant,numb1,numb2,numb3;
+
                 Dialog mydialog = new Dialog(getActivity());
                 mydialog.setContentView(R.layout.traveller_pop);
 
                 Button cancel = mydialog.findViewById(R.id.cancel);
                 Button ok = mydialog.findViewById(R.id.ok);
+
+                adult= mydialog.findViewById(R.id.adult);
+                child= mydialog.findViewById(R.id.child);
+                infant= mydialog.findViewById(R.id.infant);
+
+                add1= mydialog.findViewById(R.id.add1);
+
+                add2= mydialog.findViewById(R.id.add2);
+                add3= mydialog.findViewById(R.id.add3);
+
+                sub1= mydialog.findViewById(R.id.sub1);
+                sub2= mydialog.findViewById(R.id.sub2);
+                sub3= mydialog.findViewById(R.id.sub3);
+
+                numb1= mydialog.findViewById(R.id.numb1);
+                numb2= mydialog.findViewById(R.id.numb2);
+                numb3= mydialog.findViewById(R.id.numb3);
+
+                add1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (count1 < 6) {
+                            count1++;
+                            adult.setText(String.valueOf(count1));
+                            numb1.setText(String.valueOf(count1));
+                        }
+
+                                                else {
+                            Toast.makeText(getContext(), "Data cannot be more than 6" , Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+
+                add2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (count2 < count1) {
+                            count2++;
+                            child.setText(String.valueOf(count2));
+                            numb2.setText(String.valueOf(count2));
+                        }
+
+                                                else {
+                            Toast.makeText(getContext(), "Data cannot be more than " +count1, Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+
+                add3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (count3 < count1) {
+                            count3++;
+
+                            infant.setText(String.valueOf(count3));
+                            numb3.setText(String.valueOf(count3));
+                        }
+                        else {
+                            Toast.makeText(getContext(), "Data cannot be more than " +count1, Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+
+
+                sub1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        if (count1 > 1)
+                        {
+                            count1--;
+                            adult.setText(String.valueOf(count1));
+                            numb1.setText(String.valueOf(count1));
+                        }
+
+                            else
+                        {
+                            Toast.makeText(getContext(), "Data cannot be less 1", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+
+                sub2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (count2 > 0) {
+                            count2--;
+                            child.setText(String.valueOf(count2));
+                            numb2.setText(String.valueOf(count2));
+                        }
+                        else {
+                            Toast.makeText(getContext(), "Data cannot be less 0", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+
+                sub3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (count3 > 0)
+                        {
+                            count3--;
+                            infant.setText(String.valueOf(count3));
+                            numb3.setText(String.valueOf(count3));
+                        }
+
+
+                          else {
+                            Toast.makeText(getContext(), "Data cannot be less 0", Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }
+                });
+
+
+
+
+
+
 
 
 
@@ -194,7 +339,9 @@ radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(getActivity(),MainActivity.class));
+                        //startActivity(new Intent(getActivity(),MainActivity.class));
+
+
                     }
                 });
 
