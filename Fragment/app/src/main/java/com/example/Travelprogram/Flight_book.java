@@ -48,6 +48,15 @@ public class Flight_book extends Fragment {
         swap= view.findViewById(R.id.swap);
         origin= view.findViewById(R.id.origin);
         destination= view.findViewById(R.id.destination);
+        search = view.findViewById(R.id.search);
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),Flightbook.class));
+
+            }
+        });
 
 
 
@@ -223,8 +232,7 @@ radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 add1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        adult.setText(count1);
-                        numb1.setText(count1);
+
                         if (count1 < 6) {
                             count1++;
                             adult.setText(String.valueOf(count1));
@@ -241,8 +249,7 @@ radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 add2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        child.setText(count2);
-                        numb2.setText(count2);
+
                         if (count2 < count1) {
                             count2++;
                             child.setText(String.valueOf(count2));

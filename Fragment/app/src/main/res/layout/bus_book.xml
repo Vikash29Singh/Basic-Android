@@ -37,7 +37,7 @@
                     android:layout_width="132dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="28dp"
-                    android:text="@string/origin"
+                    android:text="@string/name"
                     android:textSize="10sp" />
 
                 <TextView
@@ -56,11 +56,11 @@
                 android:gravity="center">
 
                 <EditText
-                    android:id="@+id/origin"
+                    android:id="@+id/name"
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:hint="@string/origin"
+                    android:hint="@string/name"
 
                     android:textStyle="bold"/>
                 <ImageView
