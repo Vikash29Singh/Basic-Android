@@ -2,10 +2,12 @@ package com.example.Travelprogram;
 
 import android.content.Context;
 import android.util.SparseBooleanArray;
+import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,8 +17,8 @@ import java.util.ArrayList;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>  {
     private Context mContext;
     private ArrayList<Model> modelList;
-    //private ClickAdapterListener listener;
-    private SparseBooleanArray selectedItems;
+    private ClickAdapterListener listener;
+    //private SparseBooleanArray selectedItems;
 
 
     private static int currentSelectedIndex = -1;
@@ -24,7 +26,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public class MyViewHolder extends RecyclerView.ViewHolder /*implements View.OnLongClickListener*/ {
         public TextView textView, textView1, textView2,dept_time,arival_time;
         ImageView iv,btn_favorites;
-       // public LinearLayout linearLayout;
+       public LinearLayout linearLayout;
 
         public MyViewHolder(View view) {
             super(view);
@@ -33,6 +35,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             textView2 = view.findViewById(R.id.textView2);
             arival_time= view.findViewById(R.id.arrival_time);
             dept_time= view.findViewById(R.id.dept_time);
+            linearLayout=view.findViewById(R.id.ll);
 
             iv = view.findViewById(R.id.iv);
             //btn_favorites = view.findViewById(R.id.btn_favorites);
@@ -42,13 +45,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
 
-    public RecyclerViewAdapter(Context mContext, ArrayList<Model> modelList /*ClickAdapterListener listener*/) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<Model> modelList, ClickAdapterListener listener) {
         this.mContext = mContext;
         this.modelList = modelList;
-        //this.listener = listener;
-        selectedItems = new SparseBooleanArray();
+        this.listener = listener;
+        //selectedItems = new SparseBooleanArray();
     }
-
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -69,6 +71,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.iv.setImageResource(model.getImage());
        // holder.btn_favorites.setImageResource(model.getFav());
+        applyClickEvents(holder, position);
+
+    }
+
+    private void applyClickEvents(MyViewHolder holder, final int position) {
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onRowClicked(position, view);
+            }
+        });
 
 
     }
@@ -80,5 +93,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return modelList.size();
     }
 
+    public interface ClickAdapterListener {
+
+        void onRowClicked(int position, View v);
+
+        //void onRowLongClicked(int position, View v);
+    }
 
 }

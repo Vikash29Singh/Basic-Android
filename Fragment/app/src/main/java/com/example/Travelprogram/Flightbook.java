@@ -3,32 +3,42 @@ package com.example.Travelprogram;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class Flightbook extends AppCompatActivity {
+public class Flightbook extends AppCompatActivity implements RecyclerViewAdapter.ClickAdapterListener{
+
+    TextView origin ,destination,depart_time,arrival_time,price;
+    String originn ,destinationn,depart_timen,arrival_timen,pricen;
+
 
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
     ArrayList<Model> dataModel;
     RecyclerViewAdapter mAdapter;
     /*private ActionModeCallback actionModeCallback;
-     */private ActionMode actionMode;
-    FloatingActionButton fab;
+     private ActionMode actionMode;
+    */FloatingActionButton fab;
     private Toolbar toolbar,toolbar1;
     Button popup_menu, submit1;
     Dialog myDialog;
@@ -56,15 +66,50 @@ public class Flightbook extends AppCompatActivity {
         recyclerView.setScrollBarSize(0);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        /*actionModeCallback = new ActionModeCallback();
-         */
+        //actionModeCallback = new ActionModeCallback();
         populateDataAndSetAdapter();
 
 
     }
 
+    @Override
+    public void onRowClicked(int position, View view) {
 
-    private void populateDataAndSetAdapter() {
+
+
+        send_data(view);
+        Intent intent = new Intent(getApplicationContext(),Flightbookingdetail.class);
+        intent.putExtra("origin",originn);
+        intent.putExtra("destination",destinationn);
+        intent.putExtra("arrival_time",arrival_timen);
+        intent.putExtra("depart_time",depart_timen);
+        intent.putExtra("price",pricen);
+        startActivity(intent);
+
+
+
+       /* myDialog.setContentView(R.layout.movie_popup);
+
+        title1 = myDialog.findViewById(R.id.title);
+        genre1 = myDialog.findViewById(R.id.genre);
+        year1 = myDialog.findViewById(R.id.year);
+        rating1 = myDialog.findViewById(R.id.rating);*/
+
+
+
+        /*title1.setText(title2);
+        genre1.setText(genre2);
+        year1.setText(year2);
+        rating1.setText(rating2+"/10");*/
+
+       /* myDialog.setCancelable(true);
+        myDialog.show();*/
+
+    }
+
+
+
+        private void populateDataAndSetAdapter() {
 
 
         dataModel = new ArrayList<>();
@@ -135,10 +180,44 @@ public class Flightbook extends AppCompatActivity {
         model = new Model("Guardians of the Galaxy", "Science Fiction & Fantasy", "2014", false);
         dataModel.add(model);
 */
-        mAdapter = new RecyclerViewAdapter(this, dataModel);
+        mAdapter = new RecyclerViewAdapter(this, dataModel,this);
         recyclerView.setAdapter(mAdapter);
     }
+        private void send_data(View v) {
+            int selectedItemPosition = recyclerView.getChildAdapterPosition(v);
+            RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForAdapterPosition(selectedItemPosition);
 
+            LinearLayout linearLayoutParent = (LinearLayout) v;
+
+            CardView cardView = (CardView) linearLayoutParent.getChildAt(0);
+
+            LinearLayout linearLayout = (LinearLayout) cardView.getChildAt(1);
+
+            LinearLayout linearLayout1 = (LinearLayout) linearLayout.getChildAt(0);
+
+            LinearLayout linearLayout2 = (LinearLayout) linearLayout1.getChildAt(0);
+            LinearLayout linearLayout3 = (LinearLayout) linearLayout2.getChildAt(0);
+
+            LinearLayout linearLayout4 = (LinearLayout) linearLayout2.getChildAt(1);
+            //LinearLayout linearLayout5 = (LinearLayout) linearLayout.getChildAt(1);
+
+
+
+            origin = (TextView) linearLayout3.getChildAt(0);
+            destination = (TextView) linearLayout3.getChildAt(1);
+            depart_time = (TextView) linearLayout4.getChildAt(0);
+            arrival_time = (TextView) linearLayout4.getChildAt(1);
+            price = (TextView) linearLayout.getChildAt(1);
+
+
+            originn = origin.getText().toString();
+            destinationn = destination.getText().toString();
+            depart_timen = depart_time.getText().toString();
+            arrival_timen = arrival_time.getText().toString();
+            pricen = price.getText().toString();
+
+
+        }
 
     @Override
     public boolean onSupportNavigateUp() {
