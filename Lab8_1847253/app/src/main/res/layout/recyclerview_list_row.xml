@@ -42,6 +42,7 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center">
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
