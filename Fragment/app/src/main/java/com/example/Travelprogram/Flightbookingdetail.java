@@ -8,8 +8,11 @@ import androidx.core.app.NotificationManagerCompat;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -86,19 +89,24 @@ TextView tv1,tv2,tv3,tv4,tv5;
                 passcontact=passengercontact.getText().toString();
                 passemail = passengeremail.getText().toString();
 
+                Bitmap icon1 = BitmapFactory.decodeResource(getResources(),
+                        R.drawable.flightbooked);
+
                 createnotificationchannel(); //Create method if android version is 8 or above
 
                 Toast.makeText(Flightbookingdetail.this, "Passenger -"+passname+"\n"+"Contact -"+passcontact+"\n"+"Email -"+passemail, Toast.LENGTH_SHORT).show();
                 //this method if android version is below 8
                 String message = "This is a new message";
+                String bigtextpassenger = "Passenger -"+passname+"\n"+"Contact -"+passcontact+"\n"+"Email -"+passemail;
 
                 NotificationCompat.Builder builder =
                         new NotificationCompat.Builder(getApplicationContext(),CHANNEL_ID);
                 builder.setSmallIcon(R.drawable.flightbooked)
                         .setContentTitle("Booking Done")
-                        .setContentText("Passenger -"+passname+"\n"+"Contact -"+passcontact+"\n"+"Email -"+passemail)
-
+                        .setContentText(bigtextpassenger)
+                       /* .setLargeIcon(R.drawable.flightbooked)*/
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
                         .setAutoCancel(true);
 
                 /*Intent notificationIntent = new Intent(getApplicationContext(), Flightbookingdetail.class);
@@ -107,6 +115,50 @@ TextView tv1,tv2,tv3,tv4,tv5;
                 PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent,
                         PendingIntent.FLAG_UPDATE_CURRENT);
                 builder.setContentIntent(pendingIntent);*/
+
+
+
+                NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
+                bigText.bigText(bigtextpassenger);
+                bigText.setBigContentTitle("Booking Done");
+                bigText.setSummaryText("Passenger -"+passname);
+                builder.setStyle(bigText);
+                builder.setPriority(NotificationCompat.PRIORITY_MAX);
+
+                // Creates an explicit intent for an Activity in your app
+                Intent resultIntent = new Intent(getApplicationContext(),
+                        MainActivity.class);
+
+                // The stack builder object will contain an artificial back
+                // stack for
+                // the
+                // started Activity.
+                // getApplicationContext() ensures that navigating backward from
+                // the Activity leads out of
+                // your application to the Home screen.
+                TaskStackBuilder stackBuilder = TaskStackBuilder
+                        .create(getApplicationContext());
+
+                // Adds the back stack for the Intent (but not the Intent
+                // itself)
+                stackBuilder.addParentStack(MainActivity.class);
+
+                // Adds the Intent that starts the Activity to the top of the
+                // stack
+                stackBuilder.addNextIntent(resultIntent);
+                PendingIntent resultPendingIntent = stackBuilder
+                        .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+                builder.setContentIntent(resultPendingIntent);
+
+                /*NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+                // mId allows you to update the notification later on.
+                mNotificationManager.notify(100, mBuilder.build());
+
+
+*/
+
+
 
                 NotificationManagerCompat manager = NotificationManagerCompat.from(getApplicationContext());
                 manager.notify(NOTIFICATION_ID, builder.build());

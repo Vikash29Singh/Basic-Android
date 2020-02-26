@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class Flightbook extends AppCompatActivity implements RecyclerViewAdapter
 
     TextView origin ,destination,depart_time,arrival_time,price;
     String originn ,destinationn,depart_timen,arrival_timen,pricen;
+    SharedPreferences sh;
 
 
     RecyclerView recyclerView;
@@ -42,6 +44,167 @@ public class Flightbook extends AppCompatActivity implements RecyclerViewAdapter
     private Toolbar toolbar,toolbar1;
     Button popup_menu, submit1;
     Dialog myDialog;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
     TextView txtclose;
     Button btnDatePicker, btnTimePicker;
     private int mYear, mMonth, mDay, mHour, mMinute;
@@ -67,6 +230,9 @@ public class Flightbook extends AppCompatActivity implements RecyclerViewAdapter
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         //actionModeCallback = new ActionModeCallback();
+
+        //sh = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+
         populateDataAndSetAdapter();
 
 
@@ -111,8 +277,10 @@ public class Flightbook extends AppCompatActivity implements RecyclerViewAdapter
 
         private void populateDataAndSetAdapter() {
 
+           /* String s1 = sh.getString("origin", "");
+            String s2 = sh.getString("destination", "");*/
 
-        dataModel = new ArrayList<>();
+            dataModel = new ArrayList<>();
         Model model = new Model("BLR","11:45", "GAU","14:50", "Rs. 4548", R.drawable.indigo);
         dataModel.add(model);
 

@@ -3,6 +3,7 @@ package com.example.Travelprogram;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,8 @@ import com.google.android.material.button.MaterialButton;
 
 import java.util.Calendar;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class Flight_book extends Fragment {
 
     TextView d_date, r_date,travclass,travellertype,origin,destination;
@@ -33,6 +36,9 @@ public class Flight_book extends Fragment {
     Button cancel,ok;
     String travel_class,num;
     int count1 = 1,count2,count3;
+
+  /*  SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;*/
 
     @Nullable
     @Override
@@ -53,6 +59,13 @@ public class Flight_book extends Fragment {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                /*sharedPreferences = getActivity().getSharedPreferences("MySharedPref",
+                        MODE_PRIVATE);
+                editor= sharedPreferences.edit();
+                editor.putString("origin", origin.getText().toString());
+                editor.putString("destination", destination.getText().toString());
+                editor.commit();*/
                 startActivity(new Intent(getActivity(),Flightbook.class));
 
             }
